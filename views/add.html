@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="add.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="  #bs-example-navbar-collapse-1" aria-expanded="false">
+       				<span class="sr-only">Toggle navigation</span>
+        			<span class="icon-bar"></span>
+       	 			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+      			</button>
+				<a href="/" class="navbar-brand">Knowledge Bix</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/dbug/about">ABOUT</a></li>
+					<li><a href="/projects">Add Question</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="/register"><i class="fas fa-user-plus"></i> Signup</a></li>
+						<li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<div id="main_wrapper">
+		<div class="container">
+			<div class="rows">
+				<div class="col-md-2 col-sm-2 col-xs-1"></div>
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<br>
+					<br>
+					<h2>Add Question</h2>
+					<p>Add new questions related to above categories.
+						<hr>
+					<form action="#" method="#" id="form-box">
+						<div class="form-group">
+							<textarea id="textarea" name="question" placeholder="Question goes here....." class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="text" name="option1" placeholder="option1" class="form-control">
+						</div>
+						<div class="form-group">
+							<input type="text" name="option2" placeholder="option2" class="form-control">
+						</div>
+						
+							<div class="form-group">
+								<input type="text" name="option3" placeholder="option3" class="form-control">
+							 </div>
+							 <div class="form-group">
+							 	<input type="text" name="option4" placeholder="option4" class="form-control">
+							 </div>
+						
+						<div class="form-group">
+							<input type="text" name="answer" placeholder="Answer" class="form-control">
+						</div>
+						<div class="form-group">
+							<textarea id="textarea" placeholder="Explanation goes here...." name="Explanation" class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<p><label>Categories :-</label> 
+
+							<select name="category" id="category">
+								<option value="Apptitude" selected="">Apptitude</option>
+								<option value="reasoning">Reasoning</option>
+								<option value="Currentaffairs">Current Affairs/GK</option>
+								<option value="english">English</option>
+								<option value="technical">Technical</option>
+								<option value="Maths">Methmetics</option>
+								<option value="programming">Programming</option>
+							</select>
+							</p>
+						</div>
+						<button type="submit" class="btn btn-success btn-lg">Add</button>
+					</form>
+				</div>
+				<div class="col-md-4 col-sm-1 col-xs-1">
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

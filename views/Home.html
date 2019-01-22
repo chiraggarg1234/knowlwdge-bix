@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+     
+     
+  	
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="  #bs-example-navbar-collapse-1" aria-expanded="false">
+       				<span class="sr-only">Toggle navigation</span>
+        			<span class="icon-bar"></span>
+       	 			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+      			</button>
+				<a href="/" class="navbar-brand">Knowledge Bix</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/dbug/about">ABOUT</a></li>
+					<li><a href="/projects">Add Question</a></li>
+					<li><a data-toggle="modal" data-target="#addcategorymodal">Search</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="/register"><i class="fas fa-user-plus"></i> Signup</a></li>
+						<li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<div id="wrapper">
+		<div class="container">
+			<div class="row">
+				<br>
+				<br>
+				<div class="col-md-3 col-sm-3 col-xs-1"></div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="modal fade" id="addcategorymodal">
+					 	<div class="modal-dialog madal-lg">
+					 		<div class="modal-content">
+						 		<div class="modal-header bg-success text-white">
+						 			<h3 class="modal-title">Search</h3>
+						 			<button class="close" data-dismiss="modal"><span>&times;</span></button>
+						 		</div>
+						 		<div class="modal-body bg-white text-white">
+						 			<form action="https://www.youtube.com" method="get">
+						 				<div class="form-group">
+					 						<input type="text" class="form-control" placeholder="Search goes here..." required="yes">
+					 					</div>
+						 				<button type="submit" class="btn btn-success" data-dismiss="modal">Search</button>
+						 				<button  class="btn btn-angry" data-dismiss="modal">close</button>
+						 			</form>
+						 		</div>
+						 		
+					 		</div>
+					 	</div>
+					 </div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-1"></div>
+			</div>
+			<div class="row">
+				<% category.forEach(function(category){%>
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="category box">
+							<div class="panel-body">
+								<a href="#">
+									<div class="style-panel-content">
+										<span class="styles--category__icon--2t8ow udi-medium udi udi-development"></span>
+										<div class="styles-category-text"><%= category.category%></div>
+									</div>
+								</a>
+							</div>
+							
+						</div>
+					
+					</div>
+				<%})%>
+			</div>
+		</div>
+	</div>
+	<script>
+  		function func(){
+	  		swal({
+	  			title:"Enter what you search",
+	  			type:"input",
+	  			showCancelButton: true, 
+	  			closeOnConfirm: false,   
+			    animation: "slide-from-top",   
+			    inputPlaceholder: "Search goes here..."
+	  		},
+  			function(inputValue){
+  			if(inputValue===false)
+  				return false;
+  			if(inputValue===""){
+  				swal.showInputError("please enter something !!");
+  				return false;
+  			}
+  			document.getElementById("demo").innerHTML=inputValue;
+  			});
+	  	
+  		}
+  	</script>
+</body>
+</html>

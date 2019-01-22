@@ -1,0 +1,42 @@
+.category{
+	width: 100%;
+	display: inline;
+}
+.box{
+	position: relative;
+	border:none;
+	box-shadow: none;
+	margin-bottom: 20px;
+	background-color: white;
+	border-radius: 2px;
+	box-shadow: 0 0 1px 1px rgba(20,23,28,0.1);
+	opacity:1;
+
+}
+.panel-body{
+	box-sizing: border-box;
+}
+.style-panel-content{
+	display: flex;
+	flex-direction: row;
+}
+.styles--category__icon--2t8ow{
+	float: left;
+	padding-left: 20px;
+	font font-size: 32px;
+}
+.udi{
+	font-family: 'UdemyIcons' !important;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1;
+}
+.styles-category-text{
+	float: left;
+	height: 32px;
+	line-height: 32px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 90%;
+}

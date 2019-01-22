@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+ </head>
+ <body style="overflow: hidden;">
+ 	<div id="main_wrapper">
+ 		<div class="container" style="border:1px solid lightgrey;margin-top: 80px;height: 435px;box-sizing: border-box;box-shadow: 0 0 1px 1px rgba(20,23,28,0.2);opacity: 1;border-radius: 2px;background-color: white;">
+ 			<div class="row">
+ 				<div class="col-md-3 col-sm-3 col-xs-1"></div>
+ 				<div class="col-md-6 col-sm-6 col-xs-12">
+ 					<br>
+ 					<br>
+ 					<br>
+ 					<br>
+ 					<header class="jumbotron" style="height: 6px; padding-left: 15px; "><h2 class="ui header">Add Categories </h2></header>
+ 					<form action="#" method="#" class="ui form">
+ 						<div class="field">
+ 							<input type="text" name="subcategory" placeholder="Subcategory name..">
+ 						</div>
+ 						<div class="field">
+ 							<select name="Category" class="field">
+ 								<%category.forEach(function(category){%>
+ 									<option value="<% category.category %>" ><%=category.category %></option>
+ 								<%})%>
+ 								
+ 							</select>
+ 						</div>
+ 						<button type="submit" class="primary ui button">ADD</button>
+ 					</form>
+ 				</div>
+ 				<div class="col-md-3 col-sm-3 col-xs-1"></div>
+ 			</div>
+ 		</div>
+ 		
+ 	</div>
+ </body>
