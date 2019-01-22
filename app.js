@@ -5,32 +5,33 @@ const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
 const bcrypt=require('bcryptjs');
 const passport=require('passport');
-var User = require("./model/user.js");
-
+var User = require("./user.js");
+var category = require("./models/category.js");
+var question = require("./models/question.js");
+var subcatgs = require("./models/subcatgs.js");
 // passport config
-require('./config/passport')(passport);
+require('./passport')(passport);
 
-// load modals
-//require("./modal/user");
-//const user=mongoose.modals('user');
-
-//ejs support
+//=====================ejs support====================================
 app.use(express.static("public"));
 app.use(express.static("uploads"));
 app.set("view engine","ejs");
+//app.use(express.static(path.join(__dirname,'public')));
 
-//for bodyparser
+//===================for bodyparser=====================================
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
 
 
 
-//routes
-//const index=require('./routes/index');
-
+//====================routes=============================================
 
 app.get("/" ,(req,res)=>{
-	res.render("index");
+	category.find({},function(err,found){
+		if(err)
+			console.log(err);
+		res.render("Home",{category:found});
+	});
 });
 app.get('/login',(req,res)=>{
 	res.render("login");
@@ -40,42 +41,80 @@ app.get('/signup',(req,res)=>{
 	res.render("signup");
 });
 
-app.post('/signup',(req,res)=>{
-	//console.log(req.body);
-
-	const newuser= new User({
-		username:req.body.username,
-		email:req.body.email,
-		password:req.body.password 
+app.get("/add/question",function(req,res){
+	res.render("Add");
+});
+app.get("/add/category",function(req,res){
+	category.find({},function(err,found){
+		if(err)
+			console.log(err);
+		res.render("category",{category:found});
 	});
-
-	bcrypt.genSalt(10,(err,salt)=>{
-		bcrypt.hash(newuser.password,salt,(err,hash) => {
-			//if(err) throw err;
-			newuser.password=hash;
-			newuser.save()
-			.then(user => { 
-				res.redirect('/login');
-			})
-			.catch(err => {
+});
+app.post("/add/question",function(req,res){
+	//User.findById(req.user.id,function(err,profile){
+	//	if(err)
+	//		console.log(err);
+	//	console.log(profile);
+		var data = {
+		Question:req.body.question,
+		option1:req.body.option1,
+		option2: req.body.option2,
+		option3: req.body.option3,
+		option4: req.body.option4,
+		answer:req.body.answer,
+		description:req.body.description
+	}
+	question.create(data,function(err,final){
+		if(err)
+			console.log(err);
+		console.log(final);
+		final.save(function(err,saved){
+			if(err)
 				console.log(err);
-				return ;
-			});
+			console.log(saved);
+			var field={"subcategory":req.body.topic};
+			subcatgs.find(field,function(err,found){
+				if(err)
+					console.log(err);
+				console.log(found);
+				if(found){
+					found[0].questions.push(saved);
+					found[0].save(function(err,result){
+						if(err)
+							console.log(err);
+						console.log(result);
+					});
+					res.redirect("/add/question");
+				}
+				else{
+					res.send("NoT FOUND");
+				}
+			});	
 		});
 	});
+	});
+
+//});
+
+
+app.get("/:category/:id/subcategory",function(req,res){
+	category.findById(req.params.id).populate("subcatgs").exec(function(err,found){
+		if(err)
+			console.log(err);
+		res.render("show",{subcategory:found});
+	});
+});
+//===================passport authaticate================================
 
 	//res.send("signup");
-});
 
-app.post('/login',(req,res,next)=>{
- passport.authenticate('local',{
- 	successRedirect:'/',
- 	failureRedirect:'/login'
- })(req,res,next);
-});
 
-//   mongodb
-mongoose.connect("mongodb://knowledge:bix123456@ds255794.mlab.com:55794/knowledgebix" ,{useNewUrlParser:true});
+
+
+
+//==========================database connection===================================
+mongoose.connect("mongodb://Tulsi Sharma:tulsi123@ds257314.mlab.com:57314/knowledgebix" ,{useNewUrlParser:true});
 
 var db = mongoose.connection;
 db.on('error',function(err){
@@ -85,10 +124,6 @@ db.once('open',function(){
 	console.log("database connected");
 });
 
-
-
-app.use(express.static(path.join(__dirname,'public')));
-//app.use('/',index);
 
 
 app.listen(process.env.PORT || 3000,function()
