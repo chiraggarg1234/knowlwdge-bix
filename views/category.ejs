@@ -20,14 +20,14 @@
  					<br>
  					<br>
  					<header class="jumbotron" style="height: 6px; padding-left: 15px; "><h2 class="ui header">Add Categories </h2></header>
- 					<form action="#" method="#" class="ui form">
+ 					<form action="/add/subcategory" method="post" class="ui form">
  						<div class="field">
  							<input type="text" name="subcategory" placeholder="Subcategory name..">
  						</div>
  						<div class="field">
  							<select name="Category" class="field">
  								<%category.forEach(function(category){%>
- 									<option value="<% category.category %>" ><%=category.category %></option>
+ 									<option value="<%=category.category %>" ><%=category.category %></option>
  								<%})%>
  								
  							</select>
