@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Home.css">
+   </head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="  #bs-example-navbar-collapse-1" aria-expanded="false">
+       				<span class="sr-only">Toggle navigation</span>
+        			<span class="icon-bar"></span>
+       	 			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+      			</button>
+				<a href="/" class="navbar-brand">Knowledge Bix</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/dbug/about">ABOUT</a></li>
+					<li><a href="/projects">Add Question</a></li>
+					<li><a data-toggle="modal" data-target="#addcategorymodal">Search</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="/register"><i class="fas fa-user-plus"></i> Signup</a></li>
+						<li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+		<div id="second-div">
+			<br>
+			<br>
+			<br>
+			<div class="container back-img">
+				<div class="row">
+					<div class="col-md-8 col-sm-12 col-xs-12">
+						<div>
+							<h1 style="font-size: 52px; color: white;line-height: 1.28;">
+								<i class="graduation cap icon"></i> A Good Start for Learning.
+							</h1>
+							
+							<p style="font-size: 25px; color: white;line-height: 1.28;padding-bottom: 30px;">Learn any time and anywhere on demand.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-12 col-xs-12">
+						<form action="#" method="post" class="ui form">
+							<div class="ui search">
+								<div class="ui large icon input field" style="width: 100%; border-radius: 10px;">
+									<input type="text" class="prompt" name="search" placeholder="Search..." style="border-radius: 20px;">
+									<i class="circular search link icon"></i>
+								</div>
+								<div class="results"></div>	
+							</div>
+							
+							
+						</form>
+					</div>
+					<div class="col-md-6 col-sm-1 col-xs-1"></div>
+					
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>		
+		<div class="container">
+			
+			<div class="row">
+				<% category.forEach(function(category){ %>
+					<a href="/<%=category.category%>/<%=category._id%>/subcategory">
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<div class="category box">
+								<div class="panel-body thumbnail">
+									<img src="https://images.pexels.com/photos/33085/knowledge-book-library-glasses.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="100%" height="100%" class="">
+										<div class="style-panel-content caption">
+											<div class="styles-category-text"><i class="book icon"></i> <%= category.category%></div>
+										</div>
+									
+								
+								</div>
+							</div>
+					
+						</div>
+					</a>
+				
+				<% }) %>
+			</div>
+		</div>
+		<br>
+		<br>
+
+		<section id="test-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-1"></div>
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="ui header" style="text-align: center; color: white;margin-top: 50px;line-height: 1.28">
+							<h2>Challenge Yourself!!</h2>
+						</div>
+						<p style="text-align: center; font-size: 17px; color: white;line-height: 1.28">Answer a some tricky questions and look where you stand.</p>
+						<div class="ui inverted " style="text-align: center">
+							<a href="" type="button" class="ui positive button" style="font-size: 15px;">Take Test <i class="arrow right icon"></i></a>
+						</div>
+					</div>
+	
+					<div class="col-md-3 col-sm-3 col-xs-1"></div>
+				</div>
+			</div>
+			
+		</section>
+		<section>
+			<div class="row main-sec">
+				<div class="col-md-6 col-sm-6 col-xs-12 sec-1">
+					<div class="contant-holder">
+						<h3>ADD Questions</h3>
+					</div>
+					<div class="contant-line">
+						Add questions which you were experience.
+					</div>
+					<div class="upl-btn">
+						<a href="/new" type="button" class="ui positive button">Start Adding</a>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12 sec-2">
+					<div class="contant-holder">
+						<h3>Topics/Notes</h3>
+					</div>
+					<div class="contant-line">
+						Get ability to read our Notes on mostly asked questions.
+					</div>
+					<div class="upl-btn">
+						<a href="/projects" type="button" class="ui positive button">Getting Notes</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-12 footer-sec-1">
+					<div class="footer-logo ui header" style="padding-left: 30px;display: block;">
+						<h3><i class="graduation cap icon"></i>Knowledge Bix</h3>
+					</div>
+					<span style="padding-left: 10px;"> Copyright © 2018 Knowledge Bix, Inc</span>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12 footer-sec-2">
+					<ul id="footer-contant">
+						<li class="footer-iteam"><a href="#">About us</a></li>
+						<li class="footer-iteam"><a href="#">Term</a></li>
+						<li class="footer-iteam"><a href="#">Privacy Policy</a></li>
+					</ul>
+				</div>		
+			</div>
+
+		</div>
+		
+	</footer>	
+	<script>
+		$(document).ready(function(){
+			var content = [
+				<%category.forEach(function(cat){%>
+					{title:"<%=cat.category%>"},
+				<%})%>
+			];
+			$('.ui.search')
+                .search({
+                    type: 'standard',
+                    source: content,
+                    searchFields: ['title'],
+                });
+			
+		});
+		
+	</script>
+</body>
+</html>
