@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="/index.css">
+  <style type="text/css">
+    #div1{
+      margin-top: 50px;
+      margin-left: 50px: 
+    }
+  </style>
+
+
+</head>
+<body onload="load()">
+<div class="container" id="div1">
+      
+      <div class="row">
+        <div col-md-12 col-sm-12>
+         <ul>
+           <li>1.qwertyuioiuytrewsdfghjhgfdsasdfghjhgfdsasgbhnjhgfdsdfghjhgfdsdfghj</li>
+           <li>2.qwertyuioiuytrewsdfghjhgfdsasdfghjhgfdsasgbhnjhgfdsdfghjhgfdsdfghj</li>
+           <li>3.qwertyuioiuytrewsdfghjhgfdsasdfghjhgfdsasgbhnjhgfdsdfghjhgfdsdfghj</li>
+           <li>4.qwertyuioiuytrewsdfghjhgfdsasdfghjhgfdsasgbhnjhgfdsdfghjhgfdsdfghj</li>
+           <li>5.qwertyuioiuytrewsdfghjhgfdsasdfghjhgfdsasgbhnjhgfdsdfghjhgfdsdfghj</li>
+           <li>6.qwertyuioiuytrewsdfghjhgfdsasdfghjhgfdsasgbhnjhgfdsdfghjhgfdsdfghj</li>
+         </ul>
+       </div>
+      </div>
+
+
+   <div class="row">
+         <div class="col-md-12 col-sm-12">
+          <form action="/test/choose" method="post">
+              <select name="sel">
+               <%category.forEach(function(category){%>
+                  <option value="<%=category.category %>" ><%=category.category %></option>
+                <%})%>
+
+              </select>
+           <button class="btn-btn-primary" id="btn" href="/test/start" type="submit"> start test</button>
+          </form>
+           
+         </div>
+   </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-sm-0"></div>
+       <div class="col-md-4 col-sm-0">
+
+          <button type="submit" class="btn-btn-primary" id="btn" href="/test/start"> new button </button>
+           
+    </div>
+</div>
+
+
+<script type="text/javascript">
+     function load()
+     {
+
+          //alert("hello");
+        document.getElementById("btn").disabled = true;
+
+          setTimeout(function(){ 
+             document.getElementById("btn").disabled = false;
+           }, 5000);
+     // document.getElementById("btn-1").disabled = true;
+     }
+     
+     function fun2()
+     {
+     // location.replace("https://www.w3schools.com");
+     }
+  </script>
+
+
+</body>
+</html>

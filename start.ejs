@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+  <!--   <script type="text/javascript" src="pagination.js"></script>
+ -->   </head>
+ <body>
+
+  <h1> hello pagination on working</h1>
+
+  <div id="loop">
+
+      <%test.forEach(function(test){%>
+        <div class="list-group">
+        <p><%=test.Question%></p>
+      </div>
+    <%})%>
+      <!-- <div class="list-group">
+        <p>1 ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p> 6 ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>12 ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+      <div class="list-group">
+        <p>13 ancjadbkjcbdakjcnjkadhcjkadsnckjabdjcbnadkjlcnjkadddddkjcbdeesjfjksdnfjsnjdesjfcj</p>
+      </div>
+ -->
+  </div>
+
+ <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li>
+      <a id="Previous-page" href="javascript:void(0)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <script type="text/javascript" src="./public/pagination.js"></script>
+
+   <!-- <script type="text/javascript">
+    //$('body').hide();
+     var numofitem=$('#loop .list-group').length;
+     var pagelimit=5;
+     $("#loop .list-group:gt(" + (pagelimit-1) + ")").hide();
+  </script>  -->
+ </body>
+</html>
