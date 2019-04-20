@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Testing file upload</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style type="text/css">
+    .upl{
+      margin-top: 100px;
+    }
+   .container{
+    margin-top: 50px;
+    margin-left: 100px;
+   }
+
+  </style>
+  <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+</head>
+
+<body>
+
+  <div class="container" >
+ 
+                <div class="row">
+              <form action="/notes" method="post" class="col s12">
+                <div class="row">
+                  <div class="input-field">
+                    <input type="text" name="title">
+                    <label for="title">Title</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field">
+                    <h5>Tell Us Your Story:</h5>
+                    <textarea name="text"></textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                     <progress value="0" max="100" id="uploader">0%</progress>
+                     <br>
+                     <input type="file" value="upload" id="fileButton"> 
+                </div>
+
+                 <input type="submit" value="Save" class="btn">
+              </form>
+            </div>
+     </div>
+
+<!--   <progress value="0" max="100" id="uploader">0%</progress>
+  <input type="file" value="upload" id="fileButton"> 
+ -->
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script>
+    //BE SURE TO PROTECT EVERYTHING IN THE CONFIG
+    //DON'T COMMIT IT!!!
+    // Initialize Firebase
+    var config = {
+     apiKey: "AIzaSyAPZXIILEK7eJkUhfPkmhUpTkjZaGVzZXM",
+     authDomain: "knowledge-bix.firebaseapp.com",
+     databaseURL: "https://knowledge-bix.firebaseio.com",
+     projectId: "knowledge-bix",
+     storageBucket: "knowledge-bix.appspot.com",
+     messagingSenderId: "707757222506"
+   };
+    // var config = {
+    //   apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    //   authDomain: "YOURAPPNAME.firebaseapp.com",
+    //   databaseURL: "https://YOURAPPNAME.firebaseio.com",
+    //   projectId: "YOURAPPNAME",
+    //   storageBucket: "YOURAPPNAME.appspot.com",
+    //   messagingSenderId: "000000000000"
+    // };
+    firebase.initializeApp(config);
+  </script>
+  
+  <script type="text/javascript">
+
+      CKEDITOR.replace('body');
+    // firebase bucket name
+    // REPLACE WITH THE ONE YOU CREATE
+    // ALSO CHECK STORAGE RULES IN FIREBASE CONSOLE
+    var fbBucketName = 'images';
+    // get elements
+    var uploader = document.getElementById('uploader');
+    var fileButton = document.getElementById('fileButton');
+    // listen for file selection
+    fileButton.addEventListener('change', function (e) {
+      // what happened
+      console.log('file upload event', e);
+      // get file
+      var file = e.target.files[0];
+      // create a storage ref
+      var storageRef = firebase.storage().ref('notes/'+file.name);    //`${fbBucketName}/${file.name}`
+      // upload file
+      var uploadTask = storageRef.put(file);
+      // The part below is largely copy-pasted from the 'Full Example' section from
+      // https://firebase.google.com/docs/storage/web/upload-files
+      // update progress bar
+      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        function (snapshot) {
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          uploader.value = progress;
+          console.log('Upload is ' + progress + '% done');
+          switch (snapshot.state) {
+            case firebase.storage.TaskState.PAUSED: // or 'paused'
+              console.log('Upload is paused');
+              break;
+            case firebase.storage.TaskState.RUNNING: // or 'running'
+              console.log('Upload is running');
+              break;
+          }
+        }, function (error) {
+          // A full list of error codes is available at
+          // https://firebase.google.com/docs/storage/web/handle-errors
+          switch (error.code) {
+            case 'storage/unauthorized':
+              // User doesn't have permission to access the object
+              break;
+            case 'storage/canceled':
+              // User canceled the upload
+              break;
+            case 'storage/unknown':
+              // Unknown error occurred, inspect error.serverResponse
+              break;
+          }
+        }, function () {
+          // Upload completed successfully, now we can get the download URL
+          // save this link somewhere, e.g. put it in an input field
+          var downloadURL = uploadTask.snapshot.downloadURL;
+          console.log('downloadURL', downloadURL);
+        });
+    });
+  </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
