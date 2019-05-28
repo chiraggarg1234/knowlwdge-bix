@@ -1,0 +1,106 @@
+body{
+	margin-top: 7%;
+	overflow-x: hidden;
+}
+.container{
+	height: 27em;
+	margin-bottom: 20px;
+}
+#back-card{
+	height: 300px;
+
+	 width: 34%;
+	margin-bottom: -332px;
+	margin-left: 2px; 
+	-webkit-transform: rotate(175deg); 
+	padding: 6px;    
+	background: linear-gradient(220deg, #EC5252 -10%, #6E1A52 70%);
+
+}
+#front-card{
+	width: 75%; height: 303px; margin-left: 60px;position: absolute;padding: 7px;background: linear-gradient(220deg, #EC5252 -10%, #6E1A52 70%);
+	box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), 0 3px 1px 0 rgba(20,23,28,0.1);
+    opacity: 1;
+}
+#front-card div{
+	height: 288px;background-color: white;padding: 6px;
+}
+#front-card div ul{
+	font-size: 17px;
+}
+#front-card div li{
+	padding: 6px;
+}
+#cat-form form{
+	display: block;
+	margin-bottom: 20px;
+}
+.col-xs-1 #divider{
+	height:300px;border:1px solid lightgrey;
+	width:0px;
+}
+nav{
+	height: 8%;
+	background: black;
+}
+@media all and (max-width: 575px) { 
+	#front-card div ul{
+	font-size: 16px;
+
+	}
+	#front-card div li{
+	padding: 2px;
+	line-height: 1.2;
+	}
+	.col-xs-1 #divider{
+		visibility: hidden;
+	}
+ }
+ @media all and (min-width: 768px) { 
+ 	#front-card div ul{
+	font-size: 17px;
+	
+	}
+	#front-card div li{
+	padding: 2px;
+	line-height: 1.2;
+	}
+	.col-xs-1 #divider{
+		visibility: visible;
+	}
+
+
+  } 
+
+
+  @media all and (min-width: 991px) { 
+
+  	#front-card div ul{
+		font-size: 18px;
+		
+	}
+	#front-card div li{
+		padding: 3px;
+		line-height: 1.2;
+	}
+	.col-xs-1 #divider{
+		visibility: hidden;
+	}
+
+
+   }
+
+   @media all and (min-width: 1199px) { 
+
+   	#front-card div ul{
+		font-size: 19px;
+	}
+	#front-card div li{
+		padding: 5px;
+		line-height: 1.23;
+	}
+	.col-xs-1 #divider{
+		visibility: visible;
+	}
+
+    } 

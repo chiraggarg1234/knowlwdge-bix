@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+	margin:0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+#wrap{
+	background-attachment:;
+
+}
+#first-box{
+	width: 100%;
+	height: 380px;
+	background-image: url('https://ocul.in/backgroundimage');
+	display: flex;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-color: #FAFAFA;
+	display: block;
+	box-sizing: border-box;
+	margin: 0px 0px;
+	color: white;
+	padding-top: 32px;
+	text-align: center;
+	position: relative;
+	min-height: 250px;
+    margin-bottom: -140px
+
+}
+#first-box .outer-box{
+	text-align: center;
+	float: left;
+    min-width: 320px;
+    float: center;
+    display: block;
+    box-sizing: border-box;
+}
+#first-box .inner-box{
+	border:2px dotted white; width: 100%; height:120px;margin-top: 30px; background: rgba(0, 0, 0, 0.4);min-height: 150px;
+	border-radius: 10px;
+}
+
+@media screen and (max-width: 996px){
+	#first-box .inner-box{
+		height: 150px;
+	}
+@media screen and (max-width:763px){
+	#first-box .inner-box #box-heading{
+		padding-top: 19px;
+	}
+}
+@media screen and (max-width: 450px){
+	.container .row .col-xs-12 .category{
+		float: center;
+		width: 80%;
+		margin-left: 10%;
+
+	}
+}
+@media screen and (max-width: 650px) {
+	.container .row .col-xs-12 .category{
+		float: center;
+		width: 80%;
+		margin-left: 10%;
+
+	}
+}
+@media screen and (max-width: 767px) {
+	.container .row .col-xs-12 .category{
+		float: center;
+		width: 80%;
+		margin-left: 10%;
+
+	}
+}
+#firstbox .row .inner-box #progress-chart .button{
+	font-size: 17px;
+	font-weight: 600;
+	border-radius: 8px;
+}
+@media(max-width: 760px){
+	.inner-box #box-heading h2 .txt-type{
+		font-size: 22px;
+	}
+	.inner-box #progress-chart .button{
+		font-size: 15px;
+		font-weight: 300;
+	}
+	#first-box .outer-box #category{
+		font-size: 22px;
+		width: 50%;
+	}
+}
+@media(max-width: 420px){
+	.inner-box #box-heading h2 .txt-type{
+		font-size: 17px;
+	}
+	.inner-box #progress-chart .button{
+		font-size: 13px;
+		font-weight: 300;
+	} 
+	#first-box .outer-box #category{
+		font-size: 17px;
+		width: 50%;
+	}
+}
+
+@media screen and  (min-width: 1200px){
+	.inner-box #box-heading h2 .txt-type{
+		font-size: 27px;
+	}
+	.inner-box #progress-chart .button{
+		font-size: 19px;
+		font-weight: 600;
+	} 
+	#first-box .outer-box #category{
+		font-size: 27px;
+		width: 50%;
+	}
+}
+@media screen and (max-width: 950px){
+	.inner-box #box-heading h2 .txt-type{
+		font-size: 20px;
+	}
+	.inner-box #progress-chart .button{
+		font-size: 15px;
+		font-weight: 300;
+	} 
+	#first-box .outer-box #category{
+		font-size: 20px;
+		width: 50%;
+	}
+}
+@media screen and (max-width: 650px){
+	.inner-box #box-heading h2 .txt-type{
+		font-size: 20px;
+	}
+	.inner-box #progress-chart .button{
+		font-size: 14px;
+		font-weight: 300;
+	} 
+	#first-box .outer-box #category{
+		font-size: 20px;
+		width: 50%;
+	}
+}
+@media screen and (min-width: 800px){
+	.inner-box #box-heading h2 .txt-type{
+		font-size: 20px;
+	}
+	.inner-box #progress-chart .button{
+		font-size: 14px;
+		font-weight: 300;
+	} 
+	#first-box .outer-box #category{
+		font-size: 20px;
+		width: 50%;
+	}
+}

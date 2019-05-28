@@ -1,0 +1,82 @@
+body{
+	margin-top: 4%;
+}
+.container{
+	padding-top: 20px;
+}
+#block{
+	
+    box-shadow: 0 0 1px 1px rgba(20,20,23,0.1), 0 2px 1px 0 rgba(20,23,23,0.1);
+    opacity: 1;
+
+}
+#block:nth-child(even){
+	background-color: #f6f6f6;
+}
+#block:nth-child(odd){
+	background-color: #fafafa;
+}
+
+.container #timer-div{
+	box-shadow: 0 0 1px 1px rgba(20,20,20,0.1), 0 2px 1px 0 rgba(20,23,23,0.1);
+    opacity: 1;
+}
+
+
+
+.sno{
+	display:flex;
+	display: inline-flex;
+	margin: 10px;
+	line-height: 1.23;
+	float: left;
+}
+.question{
+	min-height: 40px;
+}
+.option{
+	margin-top: 4px;
+	line-height: 1.23;
+}
+.option .opt{
+	padding-top: 4px;
+	line-height: 1.23;
+}
+
+nav{
+	height: 8%;
+	background: black;
+}
+#testform{
+	margin-bottom: 20px;
+}
+
+.container #heading{
+	float: left;
+	font-size: 24px;
+	width: 100%;
+	
+}
+.container #heading #head{
+	float: 28px;
+}
+.container #heading #timer{
+	font-size: 29px;
+	float: right;
+	padding-right: 2px;
+	font-weight: 600;
+}
+.overlay h2 {
+  padding: 17px;
+  font-size: 39px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+.over-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
