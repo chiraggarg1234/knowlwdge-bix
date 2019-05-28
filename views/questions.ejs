@@ -1,0 +1,59 @@
+<%include partials/header %>
+<div id="main-wrap">
+	<div id="sub-wrapper">
+		<div id="header"><header><h3><span>Exercise :: </span>questions.subcategory<span>>></span>General Questions</h3></header></div>
+		<br>
+		<% var i=0 %>
+        <% questions.questions.forEach(function(test){ %>
+		<div class="well" id="loop">
+			<div class="col-md-12  col-sm-12 col-xs-12">
+            <div class="row question">
+              <div class="sno"><span>Q:<%=i+1%></span></div>
+              <div class="sno"><h4><%= test.Question %>.</h4></div>
+            </div>
+              <div class="row option">
+	              <div class="col-md-9 col-sm-9 col-xs-12">
+	                
+	                <input type="radio" name="option<%=i%>" value="a">  <%=test.option1%>.
+	              </div>
+          		</div>
+          		<div class="row option">
+	              <div class="col-md-9 col-sm-9 col-xs-12 opt">
+	                
+	                <input type="radio" name="option<%=i%>" value="b">  <%=test.option2%>.
+	              </div>
+
+            	</div>
+            <div class="row option">
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                <input type="radio" name="option<%=i%>" value="c">  <%=test.option3%>.
+              </div>
+         	 </div>
+         	 <div class="row option">
+             <div class="col-md-9 col-sm-9 col-xs-12 opt">
+              
+                <input type="radio" name="option<%=i%>" value="d">  <%=test.option4%>.
+              </div>
+              <div class="col-md-9 col-sm-9 col-xs-12 opt">
+              <p id="answer"><h4>Answer : <%=test.answer%></h4></p>
+         	 </div>
+            </div>
+          </div>
+		</div>
+		<script src="./knowlwdge-bix-master/pagination.js"></script>
+	</div>
+	
+</div>
+<%include partials/footer %>
+<script type="text/javascript">
+	
+function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+    

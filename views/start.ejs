@@ -1,0 +1,150 @@
+
+ <% include partials/header %>
+  <link rel="stylesheet"  href="/Home.css">
+  <link rel="stylesheet"  href="/start.css">
+  <div id="loop">
+    <div id="Nav" class="overlay">
+  
+    <div class="over-content">
+        <h2>Oops Timesup...</h2>
+
+    </div>
+  </div>
+    <div id="wrapper">
+      <br>
+      
+      <div class="container">
+        <div class="row" id="timer-div">
+          <br>
+          <br>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="heading" style="color: grey;width: 100%; height: auto;">
+             
+             <p><span id="head"><i class="clipboard outline icon"></i> Online <%=cat[0].category%> Test</span><span id="timer"><i class="stopwatch icon"></i> <span id="timer2"></span></span></p>
+            </div>  
+          </div>
+        </div>
+        <br>
+        <br>
+        <form action="/test/result" method="post" id="testform">
+        <% var i=0 %>
+        <% test.forEach(function(test){ %>
+        <div id="block" class="row" style="margin-bottom: 35px;">
+          <div class="col-md-12  col-sm-12 col-xs-12">
+            <div class="row question">
+              <div class="sno"><span>Q:<%=i+1%></span></div>
+              <div class="sno"><h4><%= test.Question %>.</h4></div>
+            </div>
+            <div class="row option">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                
+                <input type="radio" name="option<%=i%>" value="a">  <%=test.option1%>.
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 opt">
+                
+                <input type="radio" name="option<%=i%>" value="b">  <%=test.option2%>.
+              </div> 
+            </div>
+            <div class="row option">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+              
+                <input type="radio" name="option<%=i%>" value="c">  <%=test.option3%>.
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 opt">
+              
+                <input type="radio" name="option<%=i%>" value="d">  <%=test.option4%>.
+              </div>
+            </div>
+          </div>
+        </div>
+        <% i++ %>
+        <%});%>
+        <button type="submit" onclick="clicking()" class="ui positive button">Submit</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+ <!-- <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li>
+      <a id="Previous-page" href="javascript:void(0)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;hhh</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->
+  <!-- <script type="text/javascript" src="./public/pagination.js"></script> -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var content = [
+        <%cat.forEach(function(cat){%>
+          {title:"<%=cat.category%>"},
+        <%})%>
+      ];
+      $('.ui.search')
+                .search({
+                    type: 'standard',
+                    source: content,
+                    searchFields: ['title'],
+                });
+      
+    });
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+    var hours=1;
+    var min = 29;
+    var sec = 59;
+    var sub = 0;
+    function clicking(){
+        sub=1;
+    }
+    function timer(){
+          
+          if(hours>0 && min==0 && sec==0){
+          hours--;
+          min=59;
+          sec=59;
+
+        }
+        if(min!=0 && sec==0){
+          if(min){
+              min--;
+            }
+          sec=59;
+        }
+        // document.getElementById("timer").innerHTML=hours+":"+min+":"+sec;
+        sec--;
+        
+     }
+
+   
+     window.setInterval(function(){ 
+          if(hours==0 && min ==0 && sec==0) {
+            
+              if(!sub){
+                  
+                 document.getElementById("testform").submit();
+                 sub=1;
+                document.getElementById("Nav").style.width = "100%";
+                  
+              }
+            } else{
+                document.getElementById("timer2").innerHTML=hours+":"+min+":"+sec;
+                document.getElementById("Nav").style.width = "0%";
+              timer();
+            }
+          }
+      ,1000);
+
+     
+  </script>
+<% include partials/footer %>
+ <!-- </body>
+</html> -->

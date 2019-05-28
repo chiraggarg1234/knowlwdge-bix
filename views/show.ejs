@@ -1,41 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>add</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/Home.css">
+    <link rel="stylesheet" type="text/css" href="/show.css">
+    <title>Show</title>
  </head>
  <body>
+ 
  	<div id="main wrapper">
+ 		<section id="first-box">
+ 			<div class="row" style="margin-top: 0px;">
+ 				<div class="col-md-3 col-sm-3 col-xs-1">
+ 					<div class="outer-box" style="width: 90px;">
+ 						<div id="category" style="border:2px solid;"><h2><%=subcategory.category%></h2></div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="row" style="height:150px;">
+ 				<div class="col-md-3 col-sm-3 col-xs-1"></div>
+ 				<div class="col-md-6 col-sm-12 col-xs-12" style="text-align: center;">
+ 					<div class="inner-box">
+		 				<div id="box-heading" style="margin-bottom: 10px; padding-top: 14px; color: white;">
+		 					<h2><span class="txt-type" data-wait="3000" data-words='["Already know some <%=subcategory.category%>? Find out where to start." , "Test Your <%=subcategory.category%> Skills,Now."]' style="color: white;padding: 1px 14px;"></span></h2>
+		 				</div>
+		 				
+		 				<div id="progress-chart" style="padding-top: 10px;">
+		 					<a href="" class="ui inverted pink basic button">Check Now</a>
+		 				</div>
+ 					</div>
+ 				</div>
+ 				<div class="col-md-3 col-sm-3 col-xs-1"></div>
+ 			</div>
+ 			
+ 			
+ 		</section>
+ 		
+ 		<br>
+ 		<br>
+ 		<br>
  		<section id="wrap">
  			<div class="container">
  				<div class="row">
- 					<% subcategory.forEach(function(subcat){
- 						<a href="">
- 							<div class="col-md-3 col-sm-3 col-xs-12">
- 								<div>
- 									<div>
- 										<div class="thumbnail">
- 											<img src="#">
- 										</div>
- 										<div class="caption">
- 											<h2> <%= subcat.subcategory %></h2>
- 										</div>
- 									</div>
- 								</div>
- 							</div>
- 						</a>
- 					});
+ 					<% subcategory.subcategory.forEach(function(subcat){ %>
+ 						<a href="/<%=subcat.subcategory%>/<%=subcat.id%>/question">
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="category box" style="height: 200px">
+									<div class="panel-body thumbnail">
+										<div class="out-border"><div id="cat-pic"></div></div>
+											<div class="style-panel-content caption">
+												<div class="styles-category-text"><i class="book icon"></i> <%= subcat.subcategory%> </div>
+											</div>
+										
+									
+									</div>
+								</div>
+						
+							</div>
+						</a>
+				
+ 					<% }) %>
  					
  				</div>
  			</div>
  		</section>
- 		
+		
  	</div>
+ <script type="text/javascript">
+ 	var typewriter = function(txtelement,words,wait=3000){
+ 		this.txtelement=txtelement;
+ 		this.words=words;
+ 		this.txt='';
+ 		this.wordIndex=0;
+ 		this.wait = parseInt(wait,10);
+ 		this.type();
+ 		this.isDeleting=false;
+
+ 	}
+
+ 	typewriter.prototype.type = function(){
+ 		var current = this.wordIndex % this.words.length;
+ 		
+ 		var fulltxt = this.words[current];
+ 		
+
+ 		if(this.isDeleting){
+ 			this.txt = fulltxt.substring(0,this.txt.length-1);
+ 		}else
+ 		{
+ 			this.txt= fulltxt.substring(0,this.txt.length + 1);
+ 		}
+
+ 		this.txtelement.innerHTML = this.txt;
+
+ 		//let initial seed
+ 		let typespeed=150;
+ 		if(this.isDeleting){
+ 			typespeed /=2;
+
+ 		}
+
+ 		//if word is complete
+
+ 		if(!this.isDeleting && this.txt===fulltxt){
+ 			//take pause
+ 			typespeed = this.wait;
+ 			this.isDeleting = true;
+ 		} else if(this.isDeleting && this.txt===""){
+ 			this.isDeleting=false;
+ 			this.wordIndex++;
+ 			typespeed=500;
+
+ 		}
+ 		setTimeout(() => this.type(),typespeed);
+ 	}
+
+ 	// init on load dom
+ 	document.addEventListener("DOMContentLoaded",init);
+
+ 	function init(){
+ 		const txtelement = document.querySelector('.txt-type');
+ 		const words = JSON.parse(txtelement.getAttribute("data-words"));
+ 		const wait = txtelement.getAttribute("data-wait");
+ 		//init typewriter
+ 		new typewriter(txtelement,words,wait);
+ 	}
+ </script>
+
+
+
  	
  </body>
+
+
  </html>

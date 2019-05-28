@@ -1,0 +1,109 @@
+<% include partials/header %>
+ <link rel="stylesheet"  href="/Home.css"> -->
+  <link rel="stylesheet" type="text/css" href="/choose.css">
+  <div class="wrapper">
+    <br>
+    <br> 
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-sm-7 col-xs-12">
+            <div id="back-card">
+              <div style="height: 287px; background-color: white;">
+                <ul style="text-align: center;-webkit-transform: rotate(180deg);">
+                  <li style="padding: 17px"></li>
+                  <li style="padding: 17px"></li>
+                  <li style="padding: 17px"></li>
+                  <li style="padding: 17px"></li>
+                  <li style="padding: 17px"></li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <br>
+            <div id="front-card">
+              <div>
+                  <ul>
+                    <h3>Guidelines:</h3>
+                <li>
+                  Total number of questions : 60.
+                </li>
+                <li><b>Time alloted :</b> 1 hours & 30 minutes.</li>
+                <li>Each question carry 1 mark, no negative marks.</li>
+                <li>DO NOT refresh the page</li>
+                <li>Complete your test in a given time.</li>
+                <li>Marks will be reflected at the end of the test.</li>
+                <li>All the best :-).</li>
+              </ul>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-1">
+            <div id="divider">
+              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div id="cat-form">
+              <br>
+              <br>
+              <button class="ui standard button" style="display: block;width: 100%;">Duration:1h:30m</button>
+              <form action="/test/choose" method="post" onsubmit="return validate(this)" style="padding: 20px;width: 100%;">
+                <select name="sel" style="border-radius: 5px; border-color: lightgrey; height:35px; display: block; width: 100%;">
+                  <option value=" ">Choose Category</option>
+                 <%category.forEach(function(category){%>
+
+                    <option value="<%=category.category %>"><%=category.category %></option>
+                  <%})%>
+
+                </select><br> 
+                <button class="ui positive button" id="btn" type="submit" style="display: block;width: 100%;">Start</button>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  
+     function load()
+     {
+          //alert("hello");
+        document.getElementById("btn").disabled = true;
+          setTimeout(function(){ 
+             document.getElementById("btn").disabled = false;
+           }, 5000);
+     // document.getElementById("btn-1").disabled = true;
+     }
+     function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+
+    function validate(thisform){
+      if(thisform.sel.value==" "){
+
+        thisform.sel.focus();
+        alert("please make a selection");
+        
+        return false;
+      }
+      
+      else{
+        return true;
+      }
+    }
+  </script>
+
+<% include partials/footer %>
+</body>
+</html>

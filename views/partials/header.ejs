@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+    
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+   
+    <script type="text/javascript">
+  		$(window).on('scroll',function(){
+  			if($(window).scrollTop()){
+  				 $('nav').addClass('black');
+  				 
+  			}
+  			else
+  			{
+  				 $('nav').removeClass('black');
+           $("#search_form").hide();
+
+
+  			}
+  			
+  			if(($(window).scrollTop())>370){
+  				$("#search_form").show();
+  				
+  			}
+  			else
+  			{
+  				$("#search_form").hide();
+  			
+  			}
+
+  		});
+
+  	</script>
+   </head>
+<body>
+	<nav>
+			<div class="row" style="padding-left: 0px;">
+				<div class="col-md-1 col-sm-1 col-xs-1" style="padding-right: 0px;">
+					
+					<span onclick="openNav()">&#9776;</span>
+				</div>
+				<div class="col-md-11 col-sm-11 col-xs-11">	
+					<div class="logo" style="text-align: center;padding-left: 5px;">
+						<a href="/" style="padding-left: 0px;" > <i class="graduation cap icon"></i> Knowledge Bix</a>
+						<form class="ui form" id="search_form" style="display: inline; float: right;">
+							<div class="ui search">	
+								<div class="field ui icon input">
+									<input type="text" name="search"  class="prompt" placeholder="Search goes here.." style="border-radius: 20px;height: auto;">
+									<i class="inverted circular search link icon"></i>
+								</div>
+								<div class="results"></div>	
+							</div>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+		
+	</nav>
+	<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#"><i class="edit icon" style="font-size: 30px;"></i> Add Question</a>
+    <a href="#"><i class="fas fa-user-plus" style="font-size: 30px;"></i> SignUp</a>
+    <a href="#"><i class="fas fa-sign-in-alt" style="font-size: 30px;"></i> Login</a>
+  </div>
+</div>
