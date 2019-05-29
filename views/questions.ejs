@@ -1,45 +1,74 @@
 <%include partials/header %>
+ <link rel="stylesheet"  href="/Home.css">
+  <link rel="stylesheet"  href="/start.css">
+  <link rel="stylesheet"  href="/questions.css">
 <div id="main-wrap">
 	<div id="sub-wrapper">
-		<div id="header"><header><h3><span>Exercise :: </span>questions.subcategory<span>>></span>General Questions</h3></header></div>
+		<br>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div style="box-shadow: 0 0 1px 1px rgba(20,20,20,0.1), 0 2px 1px 0 rgba(20,23,23,0.1);opacity: 1; width:100%;padding: 0px 0px"><header><h3><span>Exercise :: </span><%=questions.subcategory%><span>>></span>General Questions</h3></header></div>
+				</div>
+			</div>
 		<br>
 		<% var i=0 %>
         <% questions.questions.forEach(function(test){ %>
-		<div class="well" id="loop">
-			<div class="col-md-12  col-sm-12 col-xs-12">
+
+		<div id="block" class="row" style="margin-bottom: 35px;">
+          <div class="col-md-12  col-sm-12 col-xs-12">
             <div class="row question">
-              <div class="sno"><span>Q:<%=i+1%></span></div>
+              <div class="sno"><span style="padding-right: 3px; line-height: 1.5">Q:<%=i+1%></span></div>
               <div class="sno"><h4><%= test.Question %>.</h4></div>
             </div>
-              <div class="row option">
-	              <div class="col-md-9 col-sm-9 col-xs-12">
-	                
-	                <input type="radio" name="option<%=i%>" value="a">  <%=test.option1%>.
-	              </div>
-          		</div>
-          		<div class="row option">
-	              <div class="col-md-9 col-sm-9 col-xs-12 opt">
-	                
-	                <input type="radio" name="option<%=i%>" value="b">  <%=test.option2%>.
-	              </div>
-
-            	</div>
             <div class="row option">
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="radio" name="option<%=i%>" value="c">  <%=test.option3%>.
+              <div class="col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 8px;">
+                
+                <b>A.</b> <%=test.option1%>.
               </div>
-         	 </div>
-         	 <div class="row option">
-             <div class="col-md-9 col-sm-9 col-xs-12 opt">
-              
-                <input type="radio" name="option<%=i%>" value="d">  <%=test.option4%>.
-              </div>
-              <div class="col-md-9 col-sm-9 col-xs-12 opt">
-              <p id="answer"><h4>Answer : <%=test.answer%></h4></p>
-         	 </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 opt" style="padding-bottom: 8px;">
+                
+                <b>B.</b> <%=test.option2%>.
+              </div> 
             </div>
+            <div class="row option">
+              <div class="col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 8px;">
+              
+               <b>C.</b>  <%=test.option3%>.
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 opt" style="padding-bottom: 13px;">
+              
+                <b>D.</b> <%=test.option4%>.
+              </div>
+              
+          
+            </div>
+            <div class="row option">
+            	<div class="col-md-12 col-sm-12 col-xs-12" id="answerbox" style="padding-bottom: 13px;display: none;">
+              
+               <p> <span><b>Answer:</b></span> option <b><%=test.answer%></b></p>
+
+                <div style="margin-top: 20px;">
+                	<p><span><b>Explanation: </b></span></p> <p><i><%=test.answer%></i></p>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 13px;margin-top: 10px;display: none;" id="workspace">
+
+              	<textarea style="width:70%;height: 150px;" placeholder="WorkSpace......"></textarea>
+              </div>
+            </div>
+            <div class="row option">
+            	<div class="col-md-12 col-sm-12 col-xs-12 opt" style="padding-bottom: 13px;">
+              	<p><a  style="color:black; padding-right: 17px;" href="javascript: void 0;" onclick="$('#answerbox').slideToggle('slow')"><i class="clipboard outline icon"></i>View Answer</a> <a href="javascript: void 0;" style="color:black;padding-right: 17px;" onclick="$('#workspace').slideToggle('slow')"><i class="clipboard outline icon"></i>Workspace</a></p>
+              </div>
+            </div>
+
+
           </div>
-		</div>
+        </div>
+		<%})%>
+	</div>
 		<script src="./knowlwdge-bix-master/pagination.js"></script>
 	</div>
 	
@@ -55,5 +84,10 @@ function openNav() {
     function closeNav() {
       document.getElementById("myNav").style.width = "0%";
     }
+
+    
+
+
 </script>
+    
     
