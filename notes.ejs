@@ -1,0 +1,38 @@
+<% include partials/header %>
+ <link rel="stylesheet"  href="/Home.css"> -->
+  <link rel="stylesheet" type="text/css" href="/choose.css">
+ <div id="main-wrap">
+	<div id="sub-wrapper">
+		<br>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div style="box-shadow: 0 0 1px 1px rgba(20,20,20,0.1), 0 2px 1px 0 rgba(20,23,23,0.1);opacity: 1; width:100%;padding: 0px 0px"><header><h3>NOTES</h3></header></div>
+				</div>
+			</div>
+		<br>
+        <% notes.forEach(function(notes){ %>
+
+		<div id="block" class="row" style="margin-bottom: 35px;">
+          <div class="col-md-12  col-sm-12 col-xs-12">
+            <div class="row question">
+              <div class="sno"><span style="padding-right: 3px; line-height: 1.5">Q:<%=i+1%></span></div>
+              <div class="sno"><h4><%= notes.title%>.</h4></div>
+            </div>
+            <div class="row option">
+              <div class="col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 8px;">
+                
+                <b>A.</b> <%=test.body%>.
+              </div>
+              
+            </div>
+        </div>
+        <%i++%>
+		<%})%>
+	</div>
+		<script src="./knowlwdge-bix-master/pagination.js"></script>
+	</div>
+	
+</div>
+<%include partials/footer %>
